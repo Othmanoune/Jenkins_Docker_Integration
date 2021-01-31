@@ -1,4 +1,7 @@
-FROM openjdk:8
+FROM openjdk:8-jdk-alpine
 EXPOSE 8080
-ADD target/Jenkins_Docker_Integration_final.jar Jenkins_Docker_Integration_final.jar
-ENTRYPOINT ["java","-jar","/Jenkins_Docker_Integration_final.jar"]
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} Jenkins_Docker_Integration_final.jar
+ENTRYPOINT ["java","-jar","Jenkins_Docker_Integration_final.jar"]
