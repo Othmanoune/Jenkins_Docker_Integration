@@ -10,6 +10,7 @@ public class JenkinsDockerIntegrationApplication {
 	 @RequestMapping("/")
 	  public String home() {
 	    return "Hello Docker World";
+	    
 	  }
 	public static void main(String[] args) {
 		SpringApplication.run(JenkinsDockerIntegrationApplication.class, args);
