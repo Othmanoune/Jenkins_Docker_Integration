@@ -2,17 +2,16 @@ package com.ensa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
 
 @SpringBootApplication
-public class JenkinsDockerIntegrationApplication {
+//@ComponentScan({"com.ensa.entities","com.ensa","com.ensa.repositories"})
+//@EntityScan("com.ensa.entities")
+@EnableJpaRepositories
+public class JenkinsDockerIntegrationApplication  {
 
-	 @RequestMapping("/")
-	  public String home() { 
-	    return "Hello Docker World";  
-	    
-	  }
-	public static void main(String[] args) {
+		public static void main(String[] args) {
 		SpringApplication.run(JenkinsDockerIntegrationApplication.class, args);
 	}
 
